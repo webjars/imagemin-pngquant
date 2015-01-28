@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>imagemin-pngquant</artifactId>
-    <version>0.1.3-SNAPSHOT</version>
+    <version>4.0.0-SNAPSHOT</version>
     <name>imagemin-pngquant</name>
     <description>WebJar for imagemin-optipng</description>
     <url>http://webjars.org</url>
@@ -41,7 +41,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstreamVersion>0.1.2</upstreamVersion>
+        <upstreamVersion>4.0.0</upstreamVersion>
         <upstream.url>https://github.com/kevva/imagemin-pngquant</upstream.url>
         <extractDir>${project.build.directory}/imagemin-pngquant-${upstreamVersion}</extractDir>
         <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstreamVersion}</destDir>
@@ -80,7 +80,7 @@
                         </goals>
                         <configuration>
                             <url>${upstream.url}/archive</url>
-                            <fromFile>${upstreamVersion}.zip</fromFile>
+                            <fromFile>v${upstreamVersion}.zip</fromFile>
                             <toDir>${project.build.directory}</toDir>
                         </configuration>
                     </execution>
@@ -99,7 +99,7 @@
                         <configuration>
                             <target>
                                 <echo message="unzip archive" />
-                                <unzip src="${project.build.directory}/${upstreamVersion}.zip" dest="${project.build.directory}" />
+                                <unzip src="${project.build.directory}/v${upstreamVersion}.zip" dest="${project.build.directory}" />
 
                                 <echo message="moving resources" />
                                 <move file="${extractDir}/package.json" toDir="${destDir}" />
